@@ -2,12 +2,12 @@
   "version": 2.0,
   "questions": [
     {
-      "question": "This is a Sample Question 1?",
+      "question": "During the potentiometric titration of glycine, the titrant is ",
       "answers": {
-        "a": "answer1",
-        "b": "answer2",
-        "c": "answer3",
-        "d": "answer4"
+        "a": "Hydrochloric acid ",
+        "b": "Sodium hydroxide ",
+        "c": "Potassium permanganate ",
+        "d": "Acetic acid "
       },
       "explanations": {
         "a": "Explanation 1  <a href='www.google.com'>here</a>",
@@ -15,16 +15,50 @@
         "c": "Explanation 2",
         "d": "Explanation 2"
       },
-      "correctAnswer": "a",
+      "correctAnswer": "b",
       "difficulty": "beginner"
     },
     {
-      "question": "This is a Sample Question 2?",
+      "question": "How is the isoelectric point (pI) of glycine determined using the potentiometric method?",
       "answers": {
-        "a": "answer1",
-        "b": "answer2",
-        "c": "answer3",
-        "d": "answer4"
+        "a": "By identifying the pH corresponding to the maximum conductivity",
+        "b": "By calculating the average of the pKa values of the amino and carboxyl groups",
+        "c": "By estimating the pH difference between start and end point.",
+        "d": "By finding the point of maximum buffer capacity."
+      },
+      "explanations": {
+        "a": "Explanation 1  <a href='www.google.com'>here</a>",
+        "b": "Explanation 2",
+        "c": "Explanation 2",
+        "d": "Explanation 2"
+      },
+      "correctAnswer": "b",
+      "difficulty": "beginner"
+    },
+    {
+      "question": "The shape of the titration curve for glycine with NaOH is closely resembles to a",
+      "answers": {
+        "a": "straight line",
+        "b": "parabola",
+        "c": "hyperbola",
+        "d": "sigmoid"
+      },
+      "explanations": {
+        "a": "Explanation 1  <a href='www.google.com'>here</a>",
+        "b": "Explanation 2",
+        "c": "Explanation 2",
+        "d": "Explanation 2"
+      },
+      "correctAnswer": "d",
+      "difficulty": "beginner"
+    },
+    {
+      "question": "pI of glycine does NOT depend on",
+      "answers": {
+        "a": "temperature of the medium",
+        "b": "ionic strength of the medium",
+        "c": "pH of the medium",
+        "d": "polarity of the medium"
       },
       "explanations": {
         "a": "Explanation 1  <a href='www.google.com'>here</a>",
@@ -33,6 +67,23 @@
         "d": "Explanation 2"
       },
       "correctAnswer": "c",
+      "difficulty": "beginner"
+    },
+    {
+      "question": "A pH-electrode consists of",
+      "answers": {
+        "a": "Only glass electrode",
+        "b": "A glass-electrode and a Ag-AgCl electrode",
+        "c": "A calomel-electrode and a Ag-AgCl electrode",
+        "d": "Only a Ag-AgCl electrode"
+      },
+      "explanations": {
+        "a": "Explanation 1  <a href='www.google.com'>here</a>",
+        "b": "Explanation 2",
+        "c": "Explanation 2",
+        "d": "Explanation 2"
+      },
+      "correctAnswer": "b",
       "difficulty": "beginner"
     }
   ]
