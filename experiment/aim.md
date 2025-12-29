@@ -1,1 +1,1 @@
-### Determining the isoelectric point of Glycine using Potentiometry.
+Determining the isoelectric point of Glycine using Potentiometry.
