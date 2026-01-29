@@ -239,6 +239,16 @@ const DragDrop = {
       zone.innerHTML = '<span class="zone-label">NaOH Loaded ✓</span>';
     }
 
+    // ✅ REMOVE ITEM FROM RIGHT EQUIPMENT TRAY
+  const trayItem = document.querySelector(
+    `#equipment-tray .lab-item[data-item="${itemType}"]`
+  );
+
+  if (trayItem) {
+    trayItem.classList.add('used');
+    trayItem.style.display = 'none';
+    updateEquipmentTrayHeight();
+  }
     // Pulse animation
     Animations.pulseElement(zone);
   }
@@ -257,7 +267,9 @@ const StepController = {
     { text: "Add the glycine solution (25 mL) to the beaker." },
     { text: "Fill the burette with 0.1M NaOH solution." },
     { text: "Setup complete! Record the initial pH and begin titration." },
-    { text: "Add NaOH in increments. Use 0.5 mL for regular additions, 0.1 mL near equivalence point." }
+    { text: "Add NaOH in increments. Use 0.5 mL for regular additions, 0.1 mL near equivalence point." },
+    {  text: "Titration completed. Observe the graph and calculated results, then click Stop/Reset."
+} 
   ],
 
   init() {
@@ -407,11 +419,14 @@ const TitrationSimulator = {
     state.titrationActive = false;
     UI.add05mlBtn.disabled = true;
     UI.add01mlBtn.disabled = true;
-    UI.hidePopup();
     setTimeout(() => {
       GraphDrawer.draw();
       PKACalculator.calculate();
     }, 500);
+    setTimeout(() => {
+    StepController.advanceStep(); // Step 9
+  }, 800);
+
   }
 };
 
@@ -735,9 +750,10 @@ if (!this.originalPos.has(item)) {
     DragDrop.canDrop(dropZone) &&
     dragged.dataset.item === dropZone.dataset.accept
   ) {
-    DragDrop.placeItem(dragged.dataset.item, dropZone);
+    DragDrop.placeItem(dragged.dataset.item, dropZone,);
     StepController.checkStepCompletion();
     placed = true;
+    
   }
 
   // 🔁 SNAP BACK IF NOT PLACED
@@ -804,3 +820,27 @@ function clearDropZoneHighlight() {
     zone.classList.remove('highlight');
   });
 }
+//ewuipment trsy size reduce
+function updateEquipmentTrayHeight() {
+  const tray = document.getElementById('equipment-tray');
+  if (!tray) return;
+
+  const remaining = tray.querySelectorAll('.lab-item:not(.used)').length;
+
+  if (remaining === 0) {
+    // 🔥 Fully collapse when empty
+    tray.style.maxHeight = '60px';
+  } 
+  else if (remaining <= 2) {
+    // ✅ Enough space for 1–2 items (no clipping)
+    tray.style.maxHeight = '180px';
+  } 
+  else if (remaining <= 4) {
+    tray.style.maxHeight = '220px';
+  } 
+  else {
+    tray.style.maxHeight = '260px';
+  }
+}
+
+

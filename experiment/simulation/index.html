@@ -149,8 +149,41 @@
           <button id="stop-btn" class="btn btn-danger">Stop / Reset</button>
         </div>
       </div>
+      </div>
+      <!--equipments and right Panel-->
+       <!-- Equipment Tray (Draggable items available during experiment) -->
+    <div class="right-panel">
+    <div id="equipment-tray" class="equipment-tray">
+      <h3>Equipment & Chemicals</h3>
+      <div class="items-grid">
+        <div class="lab-item" draggable="true" data-item="stand">
+          <img src="assets/stand.png" alt="Stand">
+          <span>Stand</span>
+        </div>
+        <div class="lab-item" draggable="true" data-item="burette">
+          <img src="assets/burette.png" alt="Burette">
+          <span>Burette</span>
+        </div>
+        <div class="lab-item" draggable="true" data-item="beaker">
+          <img src="assets/beaker.png" alt="Beaker">
+          <span>Beaker</span>
+        </div>
+        <div class="lab-item" draggable="true" data-item="ph_meter">
+          <img src="assets/ph_meter.png" alt="pH Meter">
+          <span>pH Meter</span>
+        </div>
+        <div class="lab-item" draggable="true" data-item="glycine">
+          <img src="assets/glycine.png" alt="Glycine">
+          <span>Glycine</span>
+        </div>
+        <div class="lab-item" draggable="true" data-item="naoh">
+          <img src="assets/naoh.jpg" alt="NaOH">
+          <span>NaOH</span>
+        </div>
+      </div>
+    </div>
 
-      <!-- Right Panel: Data & Results -->
+     <!-- Right Panel: Data & Results -->
       <div class="data-panel">
         <!-- pH Table -->
         <div class="table-container">
@@ -193,40 +226,14 @@
         </div>
       </div>
     </div>
+<!--code layout-->
 
-    <!-- Equipment Tray (Draggable items available during experiment) -->
-    <div id="equipment-tray" class="equipment-tray">
-      <h3>Equipment & Chemicals</h3>
-      <div class="items-grid">
-        <div class="lab-item" draggable="true" data-item="stand">
-          <img src="assets/stand.png" alt="Stand">
-          <span>Stand</span>
-        </div>
-        <div class="lab-item" draggable="true" data-item="burette">
-          <img src="assets/burette.png" alt="Burette">
-          <span>Burette</span>
-        </div>
-        <div class="lab-item" draggable="true" data-item="beaker">
-          <img src="assets/beaker.png" alt="Beaker">
-          <span>Beaker</span>
-        </div>
-        <div class="lab-item" draggable="true" data-item="ph_meter">
-          <img src="assets/ph_meter.png" alt="pH Meter">
-          <span>pH Meter</span>
-        </div>
-        <div class="lab-item" draggable="true" data-item="glycine">
-          <img src="assets/glycine.png" alt="Glycine">
-          <span>Glycine</span>
-        </div>
-        <div class="lab-item" draggable="true" data-item="naoh">
-          <img src="assets/naoh.jpg" alt="NaOH">
-          <span>NaOH</span>
-        </div>
-      </div>
-    </div>
+
+    <!--code layout-->
+  
 
     <!-- Precautions Panel -->
-    <div class="precautions-panel">
+    <!-- <div class="precautions-panel">
       <h3>⚠️ Precautions</h3>
       <ul>
         <li>Handle the burette carefully.</li>
@@ -234,7 +241,7 @@
         <li>Calibrate the pH meter carefully.</li>
         <li>Allow the pH reading to stabilize before recording.</li>
       </ul>
-    </div>
+    </div> -->
   </div>
 
   <script src="script.js"></script>
