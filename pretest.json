@@ -1,0 +1,90 @@
+{
+  "version": 2.0,
+  "questions": [
+    {
+      "question": "At the pI of glycine, the molecule exists predominantly as",
+      "answers": {
+        "a": "A zwitterion",
+        "b": "A cation",
+        "c": "An anion",
+        "d": "A neutral molecule with no charge"
+      },
+      "explanations": {
+        "a": "Explanation 1  <a href='www.google.com'>here</a>",
+        "b": "Explanation 2",
+        "c": "Explanation 2",
+        "d": "Explanation 2"
+      },
+      "correctAnswer": "a",
+      "difficulty": "beginner"
+    },
+    {
+      "question": "What does the pI (isoelectric point) of glycine represent?",
+      "answers": {
+        "a": "The pH at which glycine is most soluble",
+        "b": "The pH at which glycine has no net electrical charge",
+        "c": "The pH at which glycine is completely ionized",
+        "d": "The pH at which glycine is most reactive"
+      },
+      "explanations": {
+        "a": "Explanation 1  <a href='www.google.com'>here</a>",
+        "b": "Explanation 2",
+        "c": "Explanation 2",
+        "d": "Explanation 2"
+      },
+      "correctAnswer": "b",
+      "difficulty": "beginner"
+    },
+    {
+      "question": "Why is glycine considered an amphoteric molecule?",
+      "answers": {
+        "a": "It contains both acidic and basic functional groups.",
+        "b": "It can only accept protons.",
+        "c": "It is soluble in both acidic and basic solutions.",
+        "d": "It remains neutral at all pH values."
+      },
+      "explanations": {
+        "a": "Explanation 1  <a href='www.google.com'>here</a>",
+        "b": "Explanation 2",
+        "c": "Explanation 2",
+        "d": "Explanation 2"
+      },
+      "correctAnswer": "a",
+      "difficulty": "beginner"
+    },
+    {
+      "question": "Which two groups in glycine are involved in the protonation and deprotonation processes during titration?",
+      "answers": {
+        "a": "Amino and carboxyl groups",
+        "b": "Carboxyl and hydroxyl groups",
+        "c": "Amino and hydroxyl groups",
+        "d": "Methyl and carboxyl groups"
+      },
+      "explanations": {
+        "a": "Explanation 1  <a href='www.google.com'>here</a>",
+        "b": "Explanation 2",
+        "c": "Explanation 2",
+        "d": "Explanation 2"
+      },
+      "correctAnswer": "a",
+      "difficulty": "beginner"
+    },
+    {
+      "question": "For an amphoteric molecule, the form exists in high pH medium is",
+      "answers": {
+        "a": "Zwitterionic ",
+        "b": "Anionic ",
+        "c": "Cationic",
+        "d": "Neutral"
+      },
+      "explanations": {
+        "a": "Explanation 1  <a href='www.google.com'>here</a>",
+        "b": "Explanation 2",
+        "c": "Explanation 2",
+        "d": "Explanation 2"
+      },
+      "correctAnswer": "b",
+      "difficulty": "beginner"
+    }
+  ]
+}

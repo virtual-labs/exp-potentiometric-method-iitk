@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Chemistry Virtual Lab - Determination of pI of Glycine</title>
+  <meta name="description" content="Interactive virtual lab for potentiometric titration of glycine">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  
+  <!-- Landing Screen -->
+  <div id="landing-screen" class="screen lab-landing" >
+    <header class="lab-header">
+      <h1 style="border-radius: 10px; box-shadow: 10px;margin-bottom: 10px;">Chemistry Virtual Lab</h1>
+      <!-- <h2>Determination of pI of Glycine using Potentiometric Titration</h2> -->
+    </header>
+    
+    <div class="lab-bench" >
+      <div class="apparatus-section" style="margin-top: 160;">
+        <div class="items-grid">
+          <div class="lab-item"  data-item="burette">
+            <img src="assets/burette.png" alt="Burette" onerror="this.src='data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%2260%22 height=%22120%22><rect fill=%22%23ddd%22 width=%2260%22 height=%22120%22 rx=%225%22/><text x=%2230%22 y=%2265%22 text-anchor=%22middle%22 font-size=%2210%22>Burette</text></svg>'">
+            <span>Burette</span>
+          </div>
+          <div class="lab-item chemical" data-item="glycine">
+            <img src="assets/glycine.png"  alt="Glycine" onerror="this.src='data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%2250%22 height=%2270%22><rect fill=%22%23d4f0d4%22 width=%2250%22 height=%2270%22 rx=%225%22/><text x=%2225%22 y=%2240%22 text-anchor=%22middle%22 font-size=%228%22>Glycine</text></svg>'">
+            <span>Glycine Solution</span>
+          </div>
+            <div class="lab-item chemical" data-item="water"  >
+            <img src="assets/water.png" alt="Distilled Water" onerror="this.src='data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%2250%22 height=%2270%22><rect fill=%22%23e6f3ff%22 width=%2250%22 height=%2270%22 rx=%225%22/><text x=%2225%22 y=%2240%22 text-anchor=%22middle%22 font-size=%227%22>H₂O</text></svg>'">
+            <span>Distilled Water</span>
+          </div>
+          <div class="lab-item"  data-item="conical_flask">
+            <img src="assets/conical_flask.png" alt="Conical Flask" onerror="this.src='data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%2260%22 height=%2280%22><rect fill=%22%23ddd%22 width=%2260%22 height=%2280%22 rx=%225%22/><text x=%2230%22 y=%2240%22 text-anchor=%22middle%22 font-size=%228%22>Flask</text></svg>'">
+            <span>Conical Flask</span>
+          </div>
+          <div class="lab-item"  data-item="measuring_cylinder">
+            <img src="assets/measuring_cylinder.png" alt="Measuring Cylinder" onerror="this.src='data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%2260%22 height=%22100%22><rect fill=%22%23ddd%22 width=%2260%22 height=%22100%22 rx=%225%22/><text x=%2230%22 y=%2255%22 text-anchor=%22middle%22 font-size=%227%22>Cylinder</text></svg>'">
+            <span>Measuring Cylinder</span>
+          </div>
+          <div class="lab-item"  data-item="ph_meter">
+            <img src="assets/ph_meter.png" alt="pH Meter" onerror="this.src='data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%2260%22 height=%22100%22><rect fill=%22%23ddd%22 width=%2260%22 height=%22100%22 rx=%225%22/><text x=%2230%22 y=%2255%22 text-anchor=%22middle%22 font-size=%228%22>pH Meter</text></svg>'">
+            <span>pH Meter</span>
+          </div>
+          <div class="lab-item" data-item="beaker">
+            <img src="assets/beaker.png" alt="Beaker" onerror="this.src='data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%2260%22 height=%2270%22><rect fill=%22%23ddd%22 width=%2260%22 height=%2270%22 rx=%225%22/><text x=%2230%22 y=%2240%22 text-anchor=%22middle%22 font-size=%2210%22>Beaker</text></svg>'">
+            <span>Beaker</span>
+          </div>
+          <div class="lab-item" data-item="stand" >
+            <img src="assets/stand.png" alt="Burette Stand" onerror="this.src='data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%2260%22 height=%22120%22><rect fill=%22%23ddd%22 width=%2260%22 height=%22120%22 rx=%225%22/><text x=%2230%22 y=%2265%22 text-anchor=%22middle%22 font-size=%229%22>Stand</text></svg>'">
+            <span>Burette Stand</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="button-group" style="margin-top: 190px;">
+        <button id="start-btn" class="btn btn-primary">Start Experiment</button>
+        <button id="reset-landing-btn" class="btn btn-secondary">Reset</button>
+      </div>
+      
+    </div>
+    
+  </div>
+
+  <!-- Experiment Workspace -->
+  <div id="experiment-screen" class="screen hidden">
+    <!-- Step Popup Container -->
+    <div id="popup-container" class="popup-container">
+      <div id="step-popup" class="step-popup hidden">
+        <div class="popup-content">
+          <span class="popup-step">Step 1</span>
+          <p class="popup-text"></p>
+        </div>
+      </div>
+    </div>
+
+    <div class="experiment-layout">
+      <!-- Left Panel: Workspace -->
+      <div class="workspace-panel">
+        <div class="setup-area">
+          <!-- Burette Setup -->
+          <div class="burette-setup">
+            <div id="burette-stand-slot" class="drop-zone" data-accept="stand">
+              <div id="stand-placed" class="placed-item hidden">
+                <img src="assets/stand.png" alt="Stand" onerror="this.parentElement.innerHTML='<div class=stand-placeholder>Stand</div>'">
+              </div>
+            </div>
+            <div id="burette-slot" class="drop-zone burette-zone" data-accept="burette">
+              <div id="burette-placed" class="placed-item hidden">
+                <div class="burette-visual">
+                  <div class="burette-tube">
+                    <div id="burette-level" class="burette-liquid"></div>
+                    <div class="burette-scale">
+                      <span>0</span>
+                      <span>10</span>
+                      <span>20</span>
+                      <span>30</span>
+                      <span>40</span>
+                      <span>50</span>
+                    </div>
+                  </div>
+                  <div class="burette-tap"></div>
+                  <div id="drop-animation" class="drop hidden"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Beaker Area -->
+          <div class="beaker-area">
+            <div id="beaker-slot" class="drop-zone" data-accept="beaker">
+              <div id="beaker-placed" class="placed-item hidden">
+                <div class="beaker-visual">
+                  <div class="beaker-container">
+                    <div id="beaker-liquid" class="beaker-liquid"></div>
+                    <div id="stir-bar" class="stir-bar hidden"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div id="ph-meter-slot" class="drop-zone ph-zone" data-accept="ph_meter">
+              <div id="ph-meter-placed" class="placed-item hidden">
+                <div class="ph-meter-visual">
+                  <div class="ph-display">
+                    <span id="ph-value">--</span>
+                  </div>
+                  <div class="ph-probe"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Reagent Slots -->
+        <div class="reagent-area">
+          <div id="glycine-slot" class="drop-zone reagent-zone" data-accept="glycine">
+            <span class="zone-label">Drop Glycine Here</span>
+          </div>
+          <div id="naoh-slot" class="drop-zone reagent-zone" data-accept="naoh">
+            <span class="zone-label">Drop NaOH Here</span>
+          </div>
+        </div>
+
+        <!-- Control Buttons -->
+        <div id="control-panel" class="control-panel hidden">
+          <button id="add-05ml-btn" class="btn btn-action" disabled>Add 0.5 mL NaOH</button>
+          <button id="add-01ml-btn" class="btn btn-action" disabled>Add 0.1 mL NaOH</button>
+          <button id="stop-btn" class="btn btn-danger">Stop / Reset</button>
+        </div>
+      </div>
+      </div>
+      <!--equipments and right Panel-->
+       <!-- Equipment Tray (Draggable items available during experiment) -->
+    <div class="right-panel">
+    <div id="equipment-tray" class="equipment-tray">
+      <h3>Equipment & Chemicals</h3>
+      <div class="items-grid">
+        <div class="lab-item" draggable="true" data-item="stand">
+          <img src="assets/stand.png" alt="Stand">
+          <span>Stand</span>
+        </div>
+        <div class="lab-item" draggable="true" data-item="burette">
+          <img src="assets/burette.png" alt="Burette">
+          <span>Burette</span>
+        </div>
+        <div class="lab-item" draggable="true" data-item="beaker">
+          <img src="assets/beaker.png" alt="Beaker">
+          <span>Beaker</span>
+        </div>
+        <div class="lab-item" draggable="true" data-item="ph_meter">
+          <img src="assets/ph_meter.png" alt="pH Meter">
+          <span>pH Meter</span>
+        </div>
+        <div class="lab-item" draggable="true" data-item="glycine">
+          <img src="assets/glycine.png" alt="Glycine">
+          <span>Glycine</span>
+        </div>
+        <div class="lab-item" draggable="true" data-item="naoh">
+          <img src="assets/naoh.jpg" alt="NaOH">
+          <span>NaOH</span>
+        </div>
+      </div>
+    </div>
+
+     <!-- Right Panel: Data & Results -->
+      <div class="data-panel">
+        <!-- pH Table -->
+        <div class="table-container">
+          <h3>Titration Data</h3>
+          <div class="table-scroll">
+            <table id="data-table">
+              <thead>
+                <tr>
+                  <th>Volume (mL)</th>
+                  <th>pH</th>
+                </tr>
+              </thead>
+              <tbody id="table-body">
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- Graph Canvas -->
+        <div id="graph-container" class="graph-container hidden">
+          <h3>pH vs Volume Graph</h3>
+          <canvas id="graph-canvas" width="400" height="300"></canvas>
+        </div>
+
+        <!-- Results Panel -->
+        <div id="results-panel" class="results-panel hidden">
+          <h3>Results</h3>
+          <div class="result-item">
+            <span>pKa₁:</span>
+            <span id="pka1-value">--</span>
+          </div>
+          <div class="result-item">
+            <span>pKa₂:</span>
+            <span id="pka2-value">--</span>
+          </div>
+          <div class="result-item highlight">
+            <span>pI (Isoelectric Point):</span>
+            <span id="pi-value">--</span>
+          </div>
+        </div>
+      </div>
+    </div>
+<!--code layout-->
+
+
+    <!--code layout-->
+  
+
+    <!-- Precautions Panel -->
+    <!-- <div class="precautions-panel">
+      <h3>⚠️ Precautions</h3>
+      <ul>
+        <li>Handle the burette carefully.</li>
+        <li>Take readings at 0.5 mL intervals consistently.</li>
+        <li>Calibrate the pH meter carefully.</li>
+        <li>Allow the pH reading to stabilize before recording.</li>
+      </ul>
+    </div> -->
+  </div>
+
+  <script src="script.js"></script>
+<script src="../assets/js/iframeResize.js"></script>
+        
+        </body>
+</html>
+ 
